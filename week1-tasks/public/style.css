@@ -1,0 +1,347 @@
+/* Multicolor background animation */
+@keyframes multicolorBackground {
+    0% {
+        background: #ff7e5f;
+    }
+    25% {
+        background: #feb47b;
+    }
+    50% {
+        background: #6a11cb;
+    }
+    75% {
+        background: #2575fc;
+    }
+    100% {
+        background: #ff7e5f;
+    }
+}
+
+/* Dark mode multicolor background animation */
+@keyframes darkModeMulticolorBackground {
+    0% {
+        background: #181818;
+    }
+    25% {
+        background: #2c2c2c;
+    }
+    50% {
+        background: #444;
+    }
+    75% {
+        background: #555;
+    }
+    100% {
+        background: #181818;
+    }
+}
+
+/* General styling for body */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f7f7f7;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    transition: background-color 0.3s ease; /* Smooth transition for dark mode */
+    animation: multicolorBackground 10s ease infinite; /* Apply multicolor animation */
+}
+
+/* Dark mode styling for body */
+body.dark-mode {
+    background-color: #181818;
+    color: #fff;
+    animation: darkModeMulticolorBackground 10s ease infinite; /* Apply multicolor animation in dark mode */
+}
+
+/* Container styling */
+.container {
+    background-color: #3d3333; /* Could be too dark, consider lightening it */
+    padding: 2em;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    width: 100%;
+    text-align: center;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Dark mode styling for container */
+body.dark-mode .container {
+    background-color: #2c2c2c;
+    box-shadow: 0 5px 20px rgba(255, 255, 255, 0.1);
+}
+
+/* Heading styling */
+h1 {
+    color: #f6f6f6;
+    margin-bottom: 20px;
+    transition: color 0.3s ease;
+}
+
+/* Dark mode heading */
+body.dark-mode h1 {
+    color: #f1f1f1;
+}
+
+/* Quote container */
+#quote-container {
+    margin-bottom: 20px;
+}
+
+/* Quote text */
+#quote {
+    font-size: 1.5em;
+    font-style: italic;
+    color: #08d0e2;
+    margin-bottom: 20px;
+    transition: all 0.5s ease-in-out;
+}
+
+/* Dark mode for quote text */
+body.dark-mode #quote {
+    color: #f1f1f1;
+}
+
+/* Button styling */
+button {
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    font-size: 1em;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+    transform: translateY(-3px); /* Slight hover effect */
+}
+
+/* Dark mode button styling */
+body.dark-mode button {
+    background-color: #444;
+    color: #ddd;
+}
+
+body.dark-mode button:hover {
+    background-color: #333;
+}
+
+/* Search container */
+#search-container {
+    margin: 20px 0;
+}
+
+/* Search input field */
+#author-name {
+    padding: 10px;
+    font-size: 1em;
+    width: 60%;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+/* Dark mode search input */
+body.dark-mode #author-name {
+    background-color: #444;
+    color: #fff;
+    border-color: #555;
+}
+
+/* Search button styling */
+#search-btn {
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+#search-btn:hover {
+    background-color: #218838;
+    transform: translateY(-3px); /* Slight hover effect */
+}
+
+/* Dark mode search button */
+body.dark-mode #search-btn {
+    background-color: #6c757d;
+}
+
+body.dark-mode #search-btn:hover {
+    background-color: #5a6268;
+}
+
+/* Search results styling */
+#search-results {
+    margin-top: 20px;
+    font-size: 1.1em;
+    color: #333;
+    font-style: normal;
+    animation: fadeInUp 0.5s ease-in-out; /* Add animation for search results */
+}
+
+/* Dark mode search results */
+body.dark-mode #search-results {
+    color: #f1f1f1;
+}
+
+/* Animation for the quote transition */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Animation for search results fade in */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Additional styling for a smooth layout */
+input[type="text"] {
+    margin-right: 10px;
+}
+
+/* Toggle button for dark mode */
+#toggle-dark-mode {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #000;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+}
+
+#toggle-dark-mode:hover {
+    background-color: #333;
+}
+
+/* Table styling */
+#quote-table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+}
+
+#quote-table th, #quote-table td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+#quote-table th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+}
+
+#quote-table td {
+    background-color: #10c0c0;
+    font-weight: bold;
+}
+
+/* Dark mode for the table */
+body.dark-mode #quote-table th {
+    background-color: #444;
+    color: #fff;
+}
+
+body.dark-mode #quote-table td {
+    color: #ddd;
+}
+
+body.dark-mode #quote-table tr:nth-child(even) {
+    background-color: #555;
+}
+
+/* Hidden table header initially */
+.hidden {
+    display: none;
+}
+/* Animation for the table appearing from the top */
+@keyframes fadeInFromTop {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px); /* Start from above */
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0); /* End at the normal position */
+    }
+}
+
+/* Apply the animation to the entire table */
+#quote-table {
+    opacity: 0; /* Make sure the table is invisible at the start */
+    animation: fadeInFromTop 1s ease-in-out forwards; /* Slow fade-in from the top */
+}
+
+/* For rows, add a delay for each row to fade in sequentially */
+#quote-table tbody tr {
+    opacity: 0;
+    animation: fadeInFromTop 1s ease-in-out forwards;
+}
+
+#quote-table tbody tr:nth-child(1) {
+    animation-delay: 0.2s; /* Delay for the first row */
+}
+
+#quote-table tbody tr:nth-child(2) {
+    animation-delay: 0.4s; /* Delay for the second row */
+}
+
+#quote-table tbody tr:nth-child(3) {
+    animation-delay: 0.6s; /* Delay for the third row */
+}
+
+/* You can continue this pattern for more rows, or use a dynamic delay in JS if you prefer */
+/* Footer Styling */
+.footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 15px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    font-size: 14px;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.footer p {
+    margin: 5px 0;
+}
+
+.footer p:first-child {
+    font-weight: bold;
+}
+
+/* Make sure the content doesn't overlap with the footer */
+body {
+    margin-bottom: 50px; /* Space for the footer */
+}
+
