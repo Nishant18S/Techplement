@@ -5,28 +5,47 @@ const searchInput = document.getElementById('author-name');
 const searchResultsTable = document.getElementById('quote-table').getElementsByTagName('tbody')[0];
 const tableHeader = document.getElementById('table-header');
 
-// Simulate the delay for fetching a quote
-async function fetchQuote() {
-    // Initially show 'Loading...' before fetching the quote
+// Predefined list of quotes and authors
+const quotes = [
+    { content: "The only way to do great work is to love what you do.", author: "Steve Jobs" },
+    { content: "Success is not final, failure is not fatal: It is the courage to continue that counts.", author: "Winston Churchill" },
+    { content: "It does not matter how slowly you go as long as you do not stop.", author: "Confucius" },
+    { content: "To be yourself in a world that is constantly trying to make you something else is the greatest accomplishment.", author: "Ralph Waldo Emerson" },
+    { content: "Life is what happens when you're busy making other plans.", author: "John Lennon" },
+    { content: "The purpose of our lives is to be happy.", author: "Dalai Lama" },
+    { content: "In the middle of every difficulty lies opportunity.", author: "Albert Einstein" },
+    { content: "The best way to predict your future is to create it.", author: "Abraham Lincoln" },
+    { content: "You only live once, but if you do it right, once is enough.", author: "Mae West" },
+    { content: "Be yourself; everyone else is already taken.", author: "Oscar Wilde" },
+];
+
+// Function to get a random quote
+function getRandomQuote() {
+    const randomIndex = Math.floor(Math.random() * quotes.length);
+    return quotes[randomIndex];
+}
+
+// Simulate the delay for fetching a quote (this will simulate the "loading" effect)
+function fetchQuote() {
+    // Initially show 'Loading...' before showing the quote
     quoteElement.textContent = 'Loading...';
     quoteElement.classList.remove('quote-show'); // Remove the class initially to keep it hidden
 
-    // Simulate a delay of 2 seconds before fetching the quote
-    setTimeout(async () => {
-        const response = await fetch('http://localhost:5000/quote');
-        const data = await response.json();
-        quoteElement.textContent = `"${data.content}" - ${data.author}`;
+    // Simulate a delay of 2 seconds before showing the quote
+    setTimeout(() => {
+        const randomQuote = getRandomQuote();
+        quoteElement.textContent = `"${randomQuote.content}" - ${randomQuote.author}`;
         quoteElement.classList.add('quote-show'); // Add class to show the quote with transition
     }, 2000); // 2 seconds delay
 }
 
-
 // Search quotes by author
-async function searchQuotes() {
-    const author = searchInput.value;
-    const response = await fetch(`http://localhost:5000/search?author=${author}`);
-    const data = await response.json();
-    displaySearchResults(data);
+function searchQuotes() {
+    const author = searchInput.value.toLowerCase();
+    const filteredQuotes = quotes.filter(quote =>
+        quote.author.toLowerCase().includes(author)
+    );
+    displaySearchResults(filteredQuotes);
 }
 
 // Display search results in the table
